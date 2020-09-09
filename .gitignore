@@ -11,3 +11,13 @@ _notebooks/.ipynb_checkpoints
 .netlify
 .tweet-cache
 __pycache__
+
+# VS Code
+.vscode
+
+# jupyter examples
+_notebooks/fastcore_imgs
+_notebooks/my_icons
+_notebooks/2020-02-20-test.ipynb
+_notebooks/2020-09-01-fastcore.ipynb
+_notebooks/README.md
