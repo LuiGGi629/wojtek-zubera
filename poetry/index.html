@@ -78,7 +78,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -103,10 +103,16 @@ window.onload = wrap_img;
         <a class="category-tags-link" href="/wojtek-zubera/categories/#pyenv">pyenv</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/wojtek-zubera/categories/#black mypy">black mypy</a>
+        <a class="category-tags-link" href="/wojtek-zubera/categories/#black">black</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/wojtek-zubera/categories/#mypy">mypy</a>
         &nbsp;
       
         <a class="category-tags-link" href="/wojtek-zubera/categories/#flake8">flake8</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/wojtek-zubera/categories/#isort">isort</a>
         
       
       </p>
@@ -136,6 +142,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Consistent-Formatting-and-Readability">Consistent Formatting and Readability </a></li>
 <li class="toc-entry toc-h3"><a href="#mypy-Type-Correctness">mypy Type-Correctness </a></li>
+<li class="toc-entry toc-h3"><a href="#Isort">Isort </a></li>
 <li class="toc-entry toc-h3"><a href="#Pre-commit">Pre-commit </a></li>
 </ul>
 </li>
@@ -293,6 +300,12 @@ format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(co
 <div class="highlight"><pre><span></span>poetry add --dev mypy
 </pre></div>
 <p>Running mypy might create a lot of errors. You can configure it to only warn you about the things you are interested in. You do that by adding a mypy.ini file to your project and refer to the <a href="https://mypy.readthedocs.io/en/latest/config_file.html">documentation</a> for more details.</p>
+<h3 id="Isort">
+<a class="anchor" href="#Isort" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/PyCQA/isort">Isort</a><a class="anchor-link" href="#Isort"> </a>
+</h3>
+<p>Isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type.</p>
+<div class="highlight"><pre><span></span>poetry add --dev isort
+</pre></div>
 <h3 id="Pre-commit">
 <a class="anchor" href="#Pre-commit" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://pre-commit.com/">Pre-commit</a><a class="anchor-link" href="#Pre-commit"> </a>
 </h3>
@@ -324,7 +337,11 @@ format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(co
     -   repo: https://gitlab.com/pycqa/flake8
         rev: 3.8.3  # pick a git hash / tag to point to
         hooks:
-        - id: flake8</code></pre>
+        - id: flake8
+    -   repo: https://github.com/pycqa/isort
+        rev: 5.5.1
+        hooks:
+        - id: isort</code></pre>
 <p>In the top level folder run</p>
 <div class="highlight"><pre><span></span>pre-commit install
 </pre></div>
