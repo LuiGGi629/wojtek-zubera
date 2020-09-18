@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Git Tips | Wojtek Zubera</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Git Tips" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here are few useful git tips" />
+<meta property="og:description" content="Here are few useful git tips" />
+<link rel="canonical" href="https://luiggi629.github.io/wojtek-zubera/gitips/" />
+<meta property="og:url" content="https://luiggi629.github.io/wojtek-zubera/gitips/" />
+<meta property="og:site_name" content="Wojtek Zubera" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Here are few useful git tips","@type":"BlogPosting","headline":"Git Tips","url":"https://luiggi629.github.io/wojtek-zubera/gitips/","datePublished":"2020-09-17T00:00:00-05:00","dateModified":"2020-09-17T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://luiggi629.github.io/wojtek-zubera/gitips/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/wojtek-zubera/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://luiggi629.github.io/wojtek-zubera/feed.xml" title="Wojtek Zubera" /><link rel="shortcut icon" type="image/x-icon" href="/wojtek-zubera/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/wojtek-zubera/">Wojtek Zubera</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/wojtek-zubera/about/">About me</a><a class="page-link" href="/wojtek-zubera/search/">Search</a><a class="page-link" href="/wojtek-zubera/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Git Tips</h1><p class="page-description">Here are few useful git tips</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-17T00:00:00-05:00" itemprop="datePublished">
+        Sep 17, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/wojtek-zubera/categories/#git">git</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/wojtek-zubera/categories/#shell">shell</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/LuiGGi629/wojtek-zubera/tree/master/_notebooks/2020-09-17-git-tips.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/wojtek-zubera/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          
+          
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#When-working-with-multiple-branches-you-can-stash-changes-away-that-you-are-not-ready-to-commit-yet:">When working with multiple branches you can stash changes away that you are not ready to commit yet: </a></li>
+<li class="toc-entry toc-h2"><a href="#When-you-want-to-add-more-changes-to-last-(local)-commit,-use:">When you want to add more changes to last (local) commit, use: </a></li>
+<li class="toc-entry toc-h2"><a href="#On-the-other-hand,-if-you-want-to-spread-out-your-changes-over-multiple-commits-(granular-commits-are-good!),-use:">On the other hand, if you want to spread out your changes over multiple commits (granular commits are good!), use: </a></li>
+<li class="toc-entry toc-h2"><a href="#Imagine-you-got-all-excited-coding,-but-you-committed-them-on-the-main-branch.">Imagine you got all excited coding, but you committed them on the main branch. </a></li>
+<li class="toc-entry toc-h2"><a href="#If-you-want-to-use-a-commit-from-one-branch-on-another,-you-can-cherry-pick-it:">If you want to use a commit from one branch on another, you can cherry pick it: </a></li>
+<li class="toc-entry toc-h2"><a href="#If-you-want-to-change-a-commit-that-has-already-been-pushed-(for-example-if-you-want-to-make-some-changes-after-a-PR-review),-you-can-use-fixup-commits-and-rebase-with-autosquash:">If you want to change a commit that has already been pushed (for example if you want to make some changes after a PR review), you can use fixup commits and rebase with autosquash: </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-09-17-git-tips.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="When-working-with-multiple-branches-you-can-stash-changes-away-that-you-are-not-ready-to-commit-yet:">
+<a class="anchor" href="#When-working-with-multiple-branches-you-can-stash-changes-away-that-you-are-not-ready-to-commit-yet:" aria-hidden="true"><span class="octicon octicon-link"></span></a>When working with multiple branches you can stash changes away that you are not ready to commit yet:<a class="anchor-link" href="#When-working-with-multiple-branches-you-can-stash-changes-away-that-you-are-not-ready-to-commit-yet:"> </a>
+</h2>
+<div class="highlight"><pre><span></span>git stash save <span class="s2">"save message"</span>
+</pre></div>
+<p>Then you can retrieve them later with:</p>
+<div class="highlight"><pre><span></span>git stash list
+git stash pop &lt;stash_item_hash&gt;
+</pre></div>
+<p>use:</p>
+<div class="highlight"><pre><span></span>git stash apply
+</pre></div>
+<p>instead of:</p>
+<div class="highlight"><pre><span></span>git stash pop &lt;stash_item_hash&gt;
+</pre></div>
+<p>when you think you'll want to use those stashed changes again later</p>
+<h2 id="When-you-want-to-add-more-changes-to-last-(local)-commit,-use:">
+<a class="anchor" href="#When-you-want-to-add-more-changes-to-last-(local)-commit,-use:" aria-hidden="true"><span class="octicon octicon-link"></span></a>When you want to add more changes to last (local) commit, use:<a class="anchor-link" href="#When-you-want-to-add-more-changes-to-last-(local)-commit,-use:"> </a>
+</h2>
+<div class="highlight"><pre><span></span>git add file<span class="o">(</span>s<span class="o">)</span>
+git commit --amend
+</pre></div>
+<p>It opens your editor and lets you modify the last commit.</p>
+<p>When I want to amend on last commit, usually I don't want to change my message, so:</p>
+<div class="highlight"><pre><span></span>git commit —amend —no-edit
+</pre></div>
+<p>is a time savers!</p>
+<h2 id="On-the-other-hand,-if-you-want-to-spread-out-your-changes-over-multiple-commits-(granular-commits-are-good!),-use:">
+<a class="anchor" href="#On-the-other-hand,-if-you-want-to-spread-out-your-changes-over-multiple-commits-(granular-commits-are-good!),-use:" aria-hidden="true"><span class="octicon octicon-link"></span></a>On the other hand, if you want to spread out your changes over multiple commits (granular commits are good!), use:<a class="anchor-link" href="#On-the-other-hand,-if-you-want-to-spread-out-your-changes-over-multiple-commits-(granular-commits-are-good!),-use:"> </a>
+</h2>
+<div class="highlight"><pre><span></span>git add -p
+</pre></div>
+<p>Here you can commit only parts ("hunks") of your changes in interactive mode.</p>
+<p>"-p" is nice for git add, but helps with other commands too (e.g. reset, checkout, log)</p>
+<h2 id="Imagine-you-got-all-excited-coding,-but-you-committed-them-on-the-main-branch.">
+<a class="anchor" href="#Imagine-you-got-all-excited-coding,-but-you-committed-them-on-the-main-branch." aria-hidden="true"><span class="octicon octicon-link"></span></a>Imagine you got all excited coding, but you committed them on the main branch.<a class="anchor-link" href="#Imagine-you-got-all-excited-coding,-but-you-committed-them-on-the-main-branch."> </a>
+</h2>
+<p>No problem: if you forgot to branch off earlier, you can still do so at this point:</p>
+<div class="highlight"><pre><span></span>git branch new_branch
+</pre></div>
+<p>Now you have your changes on both original and new branch so you can wipe them out on former:</p>
+<div class="highlight"><pre><span></span>git checkout original_branch
+git reset HEAD~&lt;number-of-commits-to-go-back&gt;
+</pre></div>
+<p>(Make sure this is all local though, don't go modify changes you already pushed!)</p>
+<h2 id="If-you-want-to-use-a-commit-from-one-branch-on-another,-you-can-cherry-pick-it:">
+<a class="anchor" href="#If-you-want-to-use-a-commit-from-one-branch-on-another,-you-can-cherry-pick-it:" aria-hidden="true"><span class="octicon octicon-link"></span></a>If you want to use a commit from one branch on another, you can cherry pick it:<a class="anchor-link" href="#If-you-want-to-use-a-commit-from-one-branch-on-another,-you-can-cherry-pick-it:"> </a>
+</h2>
+<div class="highlight"><pre><span></span>git cherry-pick &lt;commit_from_anywhere_in_your_repo&gt;
+</pre></div>
+<h2 id="If-you-want-to-change-a-commit-that-has-already-been-pushed-(for-example-if-you-want-to-make-some-changes-after-a-PR-review),-you-can-use-fixup-commits-and-rebase-with-autosquash:">
+<a class="anchor" href="#If-you-want-to-change-a-commit-that-has-already-been-pushed-(for-example-if-you-want-to-make-some-changes-after-a-PR-review),-you-can-use-fixup-commits-and-rebase-with-autosquash:" aria-hidden="true"><span class="octicon octicon-link"></span></a>If you want to change a commit that has already been pushed (for example if you want to make some changes after a PR review), you can use fixup commits and rebase with autosquash:<a class="anchor-link" href="#If-you-want-to-change-a-commit-that-has-already-been-pushed-(for-example-if-you-want-to-make-some-changes-after-a-PR-review),-you-can-use-fixup-commits-and-rebase-with-autosquash:"> </a>
+</h2>
+<ol>
+<li>stage changes</li>
+</ol>
+<div class="highlight"><pre><span></span>git commit --fixup &lt;commit <span class="nb">hash</span> to update&gt;
+git rebase -i --autosquash &lt;branch to rebase onto&gt;
+git push --force-with-lease
+</pre></div>
+<p>References:</p>
+<ul>
+<li><a href="https://www.linkedin.com/in/bbelderbos">https://www.linkedin.com/in/bbelderbos</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="LuiGGi629/wojtek-zubera"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/wojtek-zubera/gitips/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/wojtek-zubera/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/wojtek-zubera/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/wojtek-zubera/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>People and communication skills are crucial.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/luiggi629" title="luiggi629"><svg class="svg-icon grey"><use xlink:href="/wojtek-zubera/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
