@@ -172,7 +172,7 @@ window.onload = wrap_img;
 <span class="k">WHERE</span> <span class="k">or</span><span class="p">.</span><span class="n">order_date</span> <span class="o">&gt;</span>                       <span class="k">WHERE</span> <span class="k">or</span><span class="p">.</span><span class="n">order_date</span> <span class="o">&gt;</span>
 <span class="n">date_sub</span><span class="p">(</span><span class="k">current_date</span><span class="p">,</span> <span class="nb">INTERVAL</span> <span class="mi">30</span> <span class="n">days</span><span class="p">)</span>    <span class="n">date_sub</span><span class="p">(</span><span class="k">current_date</span><span class="p">,</span> <span class="nb">INTERVAL</span> <span class="mi">30</span> <span class="n">days</span><span class="p">)</span>
 </pre></div>
-<p><strong>13 seconds to run</strong> ------------------------- <strong>19 seconds to run</strong></p>
+<p><strong>13 seconds to run</strong> ------------------------------ <strong>19 seconds to run</strong></p>
 <p>Two queries that return exact same results. The only difference is we flip the tables, and it makes 6 seconds speed-up.</p>
 <h3 id="Why-Temporary-Tables-Rock">
 <a class="anchor" href="#Why-Temporary-Tables-Rock" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Temporary Tables Rock<a class="anchor-link" href="#Why-Temporary-Tables-Rock"> </a>
