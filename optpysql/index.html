@@ -119,6 +119,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Review-SQL-Best-Practices">Review SQL Best Practices </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Why-Temporary-Tables-Rock">Why Temporary Tables Rock </a></li>
+<li class="toc-entry toc-h3"><a href="#Some-Simple-SQL-Optimization-things-to-remember">Some Simple SQL Optimization things to remember </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#Data-Manipulation-&-Feature-Engineering-Before-Python">Data Manipulation &amp; Feature Engineering Before Python </a>
@@ -195,13 +196,13 @@ window.onload = wrap_img;
 <ul>
 <li>Keeps your code readable and makes troubleshooting much easier.</li>
 <li>Helps you follow the single responsibility principle.</li>
-<li>
-<p>The <a href="https://en.wikipedia.org/wiki/Query_optimization">Query Optimizer</a> may not be able to properly optimize a query with subqueries and will likely result in longer run times.
-### Some Simple SQL Optimization things to remember</p>
-</li>
-<li>
-<p>When doing wildcard searches use <code>something%</code> (limit it to backend wildcard search) vs. <code>%something%</code> if you can.</p>
-</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Query_optimization">Query Optimizer</a> may not be able to properly optimize a query with subqueries and will likely result in longer run times.</li>
+</ul>
+<h3 id="Some-Simple-SQL-Optimization-things-to-remember">
+<a class="anchor" href="#Some-Simple-SQL-Optimization-things-to-remember" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Simple SQL Optimization things to remember<a class="anchor-link" href="#Some-Simple-SQL-Optimization-things-to-remember"> </a>
+</h3>
+<ul>
+<li>When doing wildcard searches use <code>something%</code> (limit it to backend wildcard search) vs. <code>%something%</code> if you can.</li>
 <li>Functions on indexed columns in the where clause remove the indexing.</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">WHERE</span> <span class="k">substring</span> <span class="p">(</span><span class="k">column</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="s1">'F'</span>
@@ -222,7 +223,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Joining-Multiple-Data-Sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Joining Multiple Data Sources<a class="anchor-link" href="#Joining-Multiple-Data-Sources"> </a>
 </h3>
 <ul>
-<li>This is SQL's bread and butters, it's wheelhouse, what it was made to do.</li>
+<li>This is SQL's bread and butter, it's wheelhouse, what it was made to do.</li>
 <li>Even if you have multiple raw data files, I advocate for standing up a quick DB and loading the CSVs in there vs. bringing them straight into pandas — you don't have to reload the file every time you want to look at the data.</li>
 </ul>
 <h3 id="Narrowing-down-your-dataset">
@@ -248,7 +249,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Feature-Engineering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feature Engineering<a class="anchor-link" href="#Feature-Engineering"> </a>
 </h3>
 <ul>
-<li>Case statements prevent a size mismatch that can sometimes happen with <code>pandas.get_dummies</code> in train vs test sets.</li>
+<li>Case statements prevent a size mismatch that can sometimes happen with <code>pandas.get_dummies()</code> in train vs test sets.</li>
 <li>Lead, Lag, Rank functions are powerful calculations that are oddly written in SQL but can leverage indices and run more optimally in SQL.</li>
 <li>A lot of features can be created before you even load the data if you'd like.</li>
 </ul>
