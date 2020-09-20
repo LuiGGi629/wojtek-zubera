@@ -278,21 +278,23 @@ The <a href="https://en.wikipedia.org/wiki/Query_optimization">Query Optimizer</
 <a class="anchor" href="#Writing-data-to-SQL" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing data to SQL<a class="anchor-link" href="#Writing-data-to-SQL"> </a>
 </h3>
 <ul>
-<li>Similarly, <code>data_frame.to_sql()</code>, <code>data_frame.to_gbq()</code>, even Spark's <code>data_frame.write.jdbc()</code> are also slow.<blockquote>
-<p>Batch writing to the rescue.</p>
-</blockquote>
+<li>
+<p>Similarly, <code>data_frame.to_sql()</code>, <code>data_frame.to_gbq()</code>, even Spark's <code>data_frame.write.jdbc()</code> are also slow, batch writing to the rescue.</p>
+</li>
+<li>
+<p>SQLAlchemy &amp; Pandas:</p>
 </li>
 </ul>
-<p>SQLAlchemy &amp; Pandas:```pythonSession = sessionmaker(bind=dest_db_con)
-sess = Session()
-sess.bulk_insert_mappings(MentorInformation, df.to_dict(orient="records"))
-sess.close()</p>
-
-<pre><code>
-Spark:
-
-```shell
-jdbcUrl = 'jdbc:mysql://{}:3306/{}?useServerPrepStmts=false&amp;rewriteBatchedStatements=true&amp;user{}&amp;password={}'</code></pre>
+<div class="highlight"><pre><span></span><span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">dest_db_con</span><span class="p">)</span>
+<span class="n">sess</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">bulk_insert_mappings</span><span class="p">(</span><span class="n">MentorInformation</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"records"</span><span class="p">))</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+<ul>
+<li>Spark:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nv">jdbcUrl</span> <span class="o">=</span> <span class="s1">'jdbc:mysql://{}:3306/{}?useServerPrepStmts=false&amp;rewriteBatchedStatements=true&amp;user{}&amp;password={}'</span>
+</pre></div>
 <p><strong>&amp;rewriteBatchedStatements=true</strong></p>
 <p>With these steps, I've seen jobs that used to take hours now take minutes.</p>
 <p>Conclusion:</p>
