@@ -195,14 +195,14 @@ window.onload = wrap_img;
 </pre></div>
 <ul>
 <li>Keeps your code readable and makes troubleshooting much easier.</li>
-<li>Helps you follow the single responsibility principle.</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Query_optimization">Query Optimizer</a> may not be able to properly optimize a query with subqueries and will likely result in longer run times.</li>
+<li>Helps you follow the single responsibility principle.
+The <a href="https://en.wikipedia.org/wiki/Query_optimization">Query Optimizer</a> may not be able to properly optimize a query with subqueries and will likely result in longer run times.</li>
 </ul>
 <h3 id="Some-Simple-SQL-Optimization-things-to-remember">
 <a class="anchor" href="#Some-Simple-SQL-Optimization-things-to-remember" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Simple SQL Optimization things to remember<a class="anchor-link" href="#Some-Simple-SQL-Optimization-things-to-remember"> </a>
 </h3>
+<p>When doing wildcard searches use <code>something%</code> (limit it to backend wildcard search) vs. <code>%something%</code> if you can.</p>
 <ul>
-<li>When doing wildcard searches use <code>something%</code> (limit it to backend wildcard search) vs. <code>%something%</code> if you can.</li>
 <li>Functions on indexed columns in the where clause remove the indexing.</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">WHERE</span> <span class="k">substring</span> <span class="p">(</span><span class="k">column</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="s1">'F'</span>
@@ -278,24 +278,21 @@ window.onload = wrap_img;
 <a class="anchor" href="#Writing-data-to-SQL" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing data to SQL<a class="anchor-link" href="#Writing-data-to-SQL"> </a>
 </h3>
 <ul>
-<li>
-<p>Similarly, <code>data_frame.to_sql()</code>, <code>data_frame.to_gbq()</code>, even Spark's <code>data_frame.write.jdbc()</code> are also slow.</p>
-<blockquote>
+<li>Similarly, <code>data_frame.to_sql()</code>, <code>data_frame.to_gbq()</code>, even Spark's <code>data_frame.write.jdbc()</code> are also slow.<blockquote>
 <p>Batch writing to the rescue.</p>
 </blockquote>
 </li>
-<li>
-<p>SQLAlchemy &amp; Pandas:<code>pythonSession = sessionmaker(bind=dest_db_con)
+</ul>
+<p>SQLAlchemy &amp; Pandas:```pythonSession = sessionmaker(bind=dest_db_con)
 sess = Session()
 sess.bulk_insert_mappings(MentorInformation, df.to_dict(orient="records"))
-sess.close()</code></p>
-</li>
-<li>
-<p>Spark:</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nv">jdbcUrl</span> <span class="o">=</span> <span class="s1">'jdbc:mysql://{}:3306/{}?useServerPrepStmts=false&amp;rewriteBatchedStatements=true&amp;user{}&amp;password={}'</span>
-</pre></div>
+sess.close()</p>
+
+<pre><code>
+Spark:
+
+```shell
+jdbcUrl = 'jdbc:mysql://{}:3306/{}?useServerPrepStmts=false&amp;rewriteBatchedStatements=true&amp;user{}&amp;password={}'</code></pre>
 <p><strong>&amp;rewriteBatchedStatements=true</strong></p>
 <p>With these steps, I've seen jobs that used to take hours now take minutes.</p>
 <p>Conclusion:</p>
